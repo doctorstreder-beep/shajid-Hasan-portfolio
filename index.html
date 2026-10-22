@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md. Shajid Hasan | Civil Engineering Student — Site Supervision & Structural Design</title>
+  <meta name="description" content="Civil Engineering student at BAUST with hands-on site engineering training, surveying, structural design knowledge and leadership experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #F7F9FC;
+      --paper-raised: #FFFFFF;
+      --ink: #0F172A;
+      --ink-soft: #64748B;
+      --line: #E2E8F0;
+      --line-strong: #CBD5E1;
+      --blueprint: #0D4F6B;
+      --blueprint-deep: #0A3A50;
+      --accent: #1A7A9C;
+      --good: #10B981;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px -8px rgba(15,23,42,.12);
+      --grid-line: rgba(13,79,107,0.06);
+      --maxw: 1120px;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-display: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html[data-theme="dark"] {
+      --paper: #0B1220;
+      --paper-raised: #111827;
+      --ink: #E2E8F0;
+      --ink-soft: #94A3B8;
+      --line: #1E293B;
+      --line-strong: #334155;
+      --blueprint: #38BDF8;
+      --blueprint-deep: #7DD3FC;
+      --accent: #0EA5E9;
+      --good: #34D399;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 28px -14px rgba(0,0,0,.55);
+      --grid-line: rgba(56,189,248,0.07);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 40px 40px,
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 40px 40px,
+        var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color .35s ease, color .35s ease;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3, h4 { font-family: var(--font-display); margin: 0 0 .5em; line-height: 1.2; font-weight: 700; }
+    p { margin: 0 0 1em; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    section { padding: 88px 0; }
+    @media (max-width: 720px) { section { padding: 56px 0; } }
+
+    .eyebrow {
+      font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blueprint); display: flex; align-items: center; gap: 10px; margin-bottom: 16px; font-weight: 500;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--blueprint); display: inline-block; }
+
+    .section-head { max-width: 640px; margin-bottom: 44px; }
+    .section-head h2 { font-size: clamp(26px, 3.2vw, 34px); }
+    .section-head .lede { color: var(--ink-soft); font-size: 16px; margin: 0; }
+
+    /* ========== NAV ========== */
+    header.site-nav {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--paper) 88%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-row { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-display); font-weight: 700; font-size: 15.5px; text-decoration: none;
+    }
+    .brand .mark {
+      width: 32px; height: 32px; border-radius: 8px; background: var(--blueprint); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 12.5px; font-weight: 600;
+    }
+    .nav-links { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a {
+      text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--ink-soft);
+      position: relative; padding: 4px 0; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; right: 100%; bottom: -2px; height: 1.5px;
+      background: var(--blueprint); transition: right .25s ease;
+    }
+    .nav-links a:hover::after { right: 0; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .theme-toggle {
+      width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line);
+      background: var(--paper-raised); cursor: pointer; display: flex; align-items: center; justify-content: center;
+      color: var(--ink); transition: border-color .2s;
+    }
+    .theme-toggle:hover { border-color: var(--blueprint); }
+    .theme-toggle svg { width: 16px; height: 16px; }
+    .theme-toggle .sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .sun { display: block; }
+    html[data-theme="dark"] .theme-toggle .moon { display: none; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 13.5px; text-decoration: none;
+      border: 1px solid transparent; cursor: pointer; font-family: var(--font-body);
+      transition: transform .15s ease, background-color .2s, border-color .2s, box-shadow .2s;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--blueprint); color: #fff; box-shadow: var(--shadow); }
+    .btn-primary:hover { background: var(--blueprint-deep); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+    .btn-ghost:hover { border-color: var(--blueprint); color: var(--blueprint); }
+    .btn-sm { padding: 7px 13px; font-size: 13px; }
+
+    .nav-toggle {
+      display: none; background: none; border: 1px solid var(--line); border-radius: 8px;
+      width: 34px; height: 34px; align-items: center; justify-content: center; cursor: pointer; color: var(--ink);
+    }
+    @media (max-width: 960px) {
+      .nav-links {
+        position: fixed; top: 66px; left: 0; right: 0; background: var(--paper);
+        flex-direction: column; padding: 18px 24px 24px; gap: 14px;
+        border-bottom: 1px solid var(--line); display: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+    }
+
+    /* ========== HERO ========== */
+    .hero { padding: 72px 0 88px; position: relative; }
+    .hero-inner {
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;
+    }
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+      .hero-photo { order: -1; justify-self: center; }
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line);
+      background: var(--paper-raised); font-size: 13px; color: var(--good); font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--good);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 25%, transparent);
+    }
+    .hero h1 {
+      font-size: clamp(30px, 4.5vw, 44px); font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .hero h1 span { color: var(--blueprint); }
+    .hero .lead {
+      font-size: 16.5px; color: var(--ink-soft); max-width: 520px; margin-bottom: 28px; line-height: 1.65;
+    }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+    .hero-meta {
+      display: grid; grid-template-columns: repeat(3, auto); gap: 28px; padding-top: 24px;
+      border-top: 1px solid var(--line); max-width: 520px;
+    }
+    .hero-meta .label {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-soft); margin-bottom: 4px;
+    }
+    .hero-meta .value { font-weight: 600; font-size: 14px; }
+    .hero-photo {
+      position: relative; justify-self: end;
+    }
+    .hero-photo img {
+      width: 100%; max-width: 340px; border-radius: 16px;
+      box-shadow: 0 12px 40px -12px rgba(13,79,107,0.35);
+      border: 3px solid var(--paper-raised);
+      object-fit: cover; aspect-ratio: 3/4;
+    }
+    @media (max-width: 860px) {
+      .hero-photo img { max-width: 260px; }
+    }
+
+    /* ========== ABOUT ========== */
+    .about-grid {
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: start;
+    }
+    @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+    .stat-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .stat-card {
+      background: var(--paper-raised); border: 1px solid var(--line); border-radius: 12px;
+      padding: 20px 18px; box-shadow: var(--shadow);
+    }
+    .stat-card .num {
+      font-size: 26px; font-weight: 800; color: var(--blueprint); letter-spacing: -0.02em; margin-bottom: 4px;
+    }
+    .stat-card .desc { font-size: 13px; color: var(--ink-soft); line-height: 1.4; }
+
+    /* ========== SKILLS ========== */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px;
+    }
+    .skill-chip {
+      background: var(--paper-raised); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; display: flex; flex-direction: column; gap: 3px;
+      transition: border-color .2s, transform .15s;
+    }
+    .skill-chip:hover { border-color: var(--blueprint); transform: translateY(-2px); }
+    .skill-chip .tag {
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--blueprint); font-weight: 500;
+    }
+    .skill-chip .name { font-weight: 600; font-size: 14.5px; }
+
+    /* ========== PROJECTS ========== */
+    .projects-list { display: flex; flex-direction: column; gap: 20px; }
+    .project-card {
+      background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px;
+      padding: 24px 26px 22px; box-shadow: var(--shadow);
+      transition: border-color .2s;
+    }
+    .project-card:hover { border-color: color-mix(in srgb, var(--blueprint) 40%, var(--line)); }
+    .project-card .badge {
+      display: inline-block; font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--ink-soft); background: color-mix(in srgb, var(--line) 60%, transparent);
+      padding: 4px 10px; border-radius: 6px; margin-bottom: 12px;
+    }
+    .project-card h3 { font-size: 18.5px; margin-bottom: 8px; }
+    .project-card .meta { font-size: 13.5px; color: var(--ink-soft); margin-bottom: 12px; }
+    .project-card ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: 14.5px; }
+    .project-card li { margin-bottom: 5px; }
+    .project-tools {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .tool {
+      font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 6px;
+      background: color-mix(in srgb, var(--blueprint) 10%, transparent); color: var(--blueprint);
+    }
+
+    /* ========== GALLERY / FIELD EXPOSURE ========== */
+    .gallery-block { margin-bottom: 48px; }
+    .gallery-block:last-child { margin-bottom: 0; }
+    .gallery-block h3 {
+      font-size: 18px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
+    }
+    .gallery-block .sub {
+      font-size: 14.5px; color: var(--ink-soft); margin-bottom: 18px; max-width: 640px;
+    }
+    .photo-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    }
+    @media (max-width: 800px) {
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .photo-grid { grid-template-columns: 1fr; }
+    }
+    .photo-item {
+      position: relative; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--line); background: var(--paper-raised);
+      aspect-ratio: 4/3; box-shadow: var(--shadow);
+    }
+    .photo-item img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease;
+    }
+    .photo-item:hover img { transform: scale(1.04); }
+    .photo-item.tall { aspect-ratio: 3/4; }
+    .photo-item.wide { grid-column: span 2; aspect-ratio: 16/9; }
+    @media (max-width: 800px) {
+      .photo-item.wide { grid-column: span 1; aspect-ratio: 4/3; }
+    }
+    .photo-caption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(transparent, rgba(0,0,0,.72));
+      color: #fff; font-size: 12.5px; font-weight: 500;
+      opacity: 0; transition: opacity .25s;
+    }
+    .photo-item:hover .photo-caption { opacity: 1; }
+
+    /* ========== TIMELINE ========== */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid; grid-template-columns: 130px 1fr; gap: 22px;
+      padding: 20px 0; border-bottom: 1px solid var(--line);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    @media (max-width: 600px) {
+      .timeline-item { grid-template-columns: 1fr; gap: 4px; }
+    }
+    .timeline-date {
+      font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); padding-top: 3px;
+    }
+    .timeline-content h3 { font-size: 16px; margin-bottom: 3px; }
+    .timeline-content .role {
+      font-size: 13.5px; color: var(--blueprint); font-weight: 600; margin-bottom: 6px;
+    }
+    .timeline-content ul {
+      font-size: 14px; color: var(--ink-soft); margin: 0; padding-left: 18px;
+    }
+    .timeline-content li { margin-bottom: 3px; }
+
+    /* ========== EDUCATION ========== */
+    .edu-list { display: flex; flex-direction: column; gap: 12px; }
+    .edu-item {
+      background: var(--paper-raised); border: 1px solid var(--line); border-radius: 12px;
+      padding: 18px 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+      flex-wrap: wrap;
+    }
+    .edu-item h3 { font-size: 15.5px; margin-bottom: 3px; }
+    .edu-item .school { font-size: 13.5px; color: var(--ink-soft); }
+    .edu-right { text-align: right; }
+    .edu-right .year { font-weight: 600; color: var(--blueprint); font-size: 13.5px; }
+    .edu-right .grade { font-size: 12.5px; color: var(--ink-soft); }
+
+    /* ========== CONTACT ========== */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+    }
+    @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-card {
+      background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px;
+      padding: 26px; box-shadow: var(--shadow);
+    }
+    .contact-card h3 { font-size: 17px; margin-bottom: 8px; }
+    .contact-card p { color: var(--ink-soft); font-size: 14px; margin-bottom: 18px; }
+    .contact-links { display: flex; flex-direction: column; gap: 9px; }
+    .contact-links a {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      padding: 11px 13px; border-radius: 8px; border: 1px solid var(--line);
+      font-weight: 500; font-size: 14px; transition: border-color .2s, background .2s;
+    }
+    .contact-links a:hover { border-color: var(--blueprint); background: color-mix(in srgb, var(--blueprint) 6%, transparent); }
+    .contact-links .icon { width: 18px; text-align: center; }
+
+    footer {
+      border-top: 1px solid var(--line); padding: 24px 0; text-align: center;
+      font-size: 13px; color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="site-nav">
+    <div class="container nav-row">
+      <a href="#top" class="brand">
+        <span class="mark">SH</span>
+        <span>Shajid Hasan</span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#field">Field Exposure</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">Contact</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">Open to site engineering & internship opportunities</div>
+          <h1>Civil Engineering student focused on <span>site supervision</span>, surveying & structural design.</h1>
+          <p class="lead">
+            Hands-on experience in field surveying, industrial attachment, material testing and structural analysis.
+            Ready to contribute to real construction projects with discipline and attention to detail.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            <a href="#field" class="btn btn-ghost">View Field Work</a>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <div class="label">Discipline</div>
+              <div class="value">Civil Engineering</div>
+            </div>
+            <div>
+              <div class="label">Focus</div>
+              <div class="value">Site · Survey · Structure</div>
+            </div>
+            <div>
+              <div class="label">University</div>
+              <div class="value">BAUST · 2026</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="profile.jpg" alt="Md. Shajid Hasan - Civil Engineering Student" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">About</div>
+        <h2>Building practical skills for the construction industry.</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p style="color:var(--ink-soft); font-size:15.5px; line-height:1.75;">
+            I am a final-year BSc Civil Engineering student at <strong>Bangladesh Army University of Science & Technology (BAUST)</strong>, Saidpur.
+            My academic journey combines classroom learning with extensive practical exposure in surveying laboratories, field work and industrial attachment.
+          </p>
+          <p style="color:var(--ink-soft); font-size:15.5px; line-height:1.75;">
+            From operating total stations and dumpy levels to site supervision under safety protocols, I have developed a strong foundation in measurement, documentation and quality control.
+            I am motivated, disciplined and eager to apply these skills in professional engineering environments.
+          </p>
+        </div>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="num">2026</div>
+            <div class="desc">Expected graduation<br>BSc Civil Engineering</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">ETABS</div>
+            <div class="desc">Thesis on serviceability<br>limit check with shear walls</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">Field</div>
+            <div class="desc">Surveying lab, industrial<br>attachment & site training</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">3+</div>
+            <div class="desc">Leadership roles in<br>university clubs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Skills</div>
+        <h2>Technical & professional skills</h2>
+        <p class="lede">Engineering knowledge, field instruments, software tools and soft skills developed through study, labs and leadership.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-chip"><span class="tag">Field</span><span class="name">Total Station & Dumpy Level</span></div>
+        <div class="skill-chip"><span class="tag">Field</span><span class="name">Site Supervision</span></div>
+        <div class="skill-chip"><span class="tag">Field</span><span class="name">Material Testing</span></div>
+        <div class="skill-chip"><span class="tag">Engineering</span><span class="name">Structural Design</span></div>
+        <div class="skill-chip"><span class="tag">Engineering</span><span class="name">Manual Drafting</span></div>
+        <div class="skill-chip"><span class="tag">Software</span><span class="name">ETABS (Thesis)</span></div>
+        <div class="skill-chip"><span class="tag">Software</span><span class="name">MS Office Suite</span></div>
+        <div class="skill-chip"><span class="tag">Soft Skill</span><span class="name">Teamwork & Leadership</span></div>
+        <div class="skill-chip"><span class="tag">Soft Skill</span><span class="name">Documentation</span></div>
+        <div class="skill-chip"><span class="tag">Soft Skill</span><span class="name">Problem-Solving</span></div>
+        <div class="skill-chip"><span class="tag">Soft Skill</span><span class="name">Work Under Pressure</span></div>
+        <div class="skill-chip"><span class="tag">Additional</span><span class="name">Photography & Editing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Projects</div>
+        <h2>Academic & training projects</h2>
+        <p class="lede">These projects demonstrate structural analysis, campus planning and practical site exposure. They are academic / training projects.</p>
+      </div>
+      <div class="projects-list">
+        <article class="project-card">
+          <span class="badge">Thesis · Academic</span>
+          <h3>Comparative Analysis of Serviceability Limit Check for RC Buildings with and without Shear Walls</h3>
+          <div class="meta">Using ETABS · BAUST</div>
+          <ul>
+            <li>Compared serviceability performance of reinforced concrete buildings with and without shear walls.</li>
+            <li>Performed structural modelling and analysis in ETABS to evaluate displacement and drift limits.</li>
+            <li>Documented findings on the contribution of shear walls to serviceability criteria.</li>
+          </ul>
+          <div class="project-tools">
+            <span class="tool">ETABS</span>
+            <span class="tool">Structural Analysis</span>
+            <span class="tool">RCC Design</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="badge">Capstone Project · Academic</span>
+          <h3>BAUST Cafeteria – An Efficient Campus</h3>
+          <div class="meta">Design & Business Plan · Spatial Planning</div>
+          <ul>
+            <li>Developed a comprehensive design and business plan for a modern, student-focused campus cafeteria.</li>
+            <li>Carried out spatial planning, financial modelling and sustainability research.</li>
+            <li>Delivered a cost-effective, eco-friendly and community-driven campus dining concept.</li>
+          </ul>
+          <div class="project-tools">
+            <span class="tool">Spatial Planning</span>
+            <span class="tool">Financial Modelling</span>
+            <span class="tool">Sustainability</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="badge">Training · Industrial Exposure</span>
+          <h3>Site Engineer Training — Building Design & Construction Consultant</h3>
+          <div class="meta">20 August – 2 September 2025</div>
+          <ul>
+            <li>Hands-on experience in site supervision under senior engineers.</li>
+            <li>Assisted with material testing and quality checks on active construction sites.</li>
+            <li>Supported structural design tasks and daily site documentation.</li>
+          </ul>
+          <div class="project-tools">
+            <span class="tool">Site Supervision</span>
+            <span class="tool">Material Testing</span>
+            <span class="tool">Quality Control</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIELD EXPOSURE (with photos) -->
+  <section id="field">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Field Exposure</div>
+        <h2>Surveying Lab, Industrial Attachment & Practical Work</h2>
+        <p class="lede">Hands-on training with surveying instruments, field measurements, site visits and industrial attachment programmes under faculty supervision.</p>
+      </div>
+
+      <!-- Surveying Lab -->
+      <div class="gallery-block">
+        <h3>Surveying Laboratory & Field Practice</h3>
+        <p class="sub">Practical training with Total Station, Dumpy Level, levelling staff, and manual technical drafting as part of the Civil Engineering curriculum at BAUST.</p>
+        <div class="photo-grid">
+          <div class="photo-item">
+            <img src="surveying-total-station.jpg" alt="Operating Total Station on campus" loading="lazy" />
+            <div class="photo-caption">Operating Total Station — campus surveying practical</div>
+          </div>
+          <div class="photo-item">
+            <img src="surveying-looking.jpg" alt="Looking through surveying instrument" loading="lazy" />
+            <div class="photo-caption">Instrument setup & observation</div>
+          </div>
+          <div class="photo-item">
+            <img src="surveying-setup.jpg" alt="Setting up tripod and level" loading="lazy" />
+            <div class="photo-caption">Setting up levelling instrument</div>
+          </div>
+          <div class="photo-item wide">
+            <img src="surveying-group-large.jpg" alt="Large group surveying practical" loading="lazy" />
+            <div class="photo-caption">Department surveying practical — group field exercise with Total Station</div>
+          </div>
+          <div class="photo-item">
+            <img src="surveying-group-small.jpg" alt="Small group with surveying equipment" loading="lazy" />
+            <div class="photo-caption">Team practice with surveying instruments</div>
+          </div>
+          <div class="photo-item">
+            <img src="manual-drafting.jpg" alt="Manual drafting on drawing board" loading="lazy" />
+            <div class="photo-caption">Manual technical drafting on drawing board</div>
+          </div>
+          <div class="photo-item">
+            <img src="manual-drafting-2.jpg" alt="Manual drafting work" loading="lazy" />
+            <div class="photo-caption">Plotting survey data — manual drafting practice</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industrial Attachment / Site Work -->
+      <div class="gallery-block">
+        <h3>Industrial Attachment & Site Exposure</h3>
+        <p class="sub">Field visits, site supervision practice and industrial attachment activities including safety protocol observance, documentation and interaction with industry professionals.</p>
+        <div class="photo-grid">
+          <div class="photo-item">
+            <img src="field-work-safety.jpg" alt="Site work with safety gear" loading="lazy" />
+            <div class="photo-caption">Site documentation — safety helmet & high-visibility vest</div>
+          </div>
+          <div class="photo-item">
+            <img src="field-work-notes.jpg" alt="Taking notes on site" loading="lazy" />
+            <div class="photo-caption">Field notes & observation during site exposure</div>
+          </div>
+          <div class="photo-item wide">
+            <img src="site-visit-1.jpg" alt="Group site visit with faculty" loading="lazy" />
+            <div class="photo-caption">Site visit with faculty members and classmates</div>
+          </div>
+          <div class="photo-item wide">
+            <img src="office-meeting.jpg" alt="Meeting with industry professional" loading="lazy" />
+            <div class="photo-caption">Industrial attachment — discussion with industry professional</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Leadership</div>
+        <h2>Clubs & extracurricular activities</h2>
+        <p class="lede">Active involvement in student organisations developing leadership, event management and teamwork skills.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">BAUST</div>
+          <div class="timeline-content">
+            <h3>Environment and Sustainability Club (ESC)</h3>
+            <div class="role">President</div>
+            <ul>
+              <li>Promoted environmental awareness and sustainability on campus</li>
+              <li>Organised Tree Plantation campaigns</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">BAUST</div>
+          <div class="timeline-content">
+            <h3>Civil Engineering Innovation Club (CEIC)</h3>
+            <div class="role">Vice President</div>
+            <ul>
+              <li>Coordinated club initiatives and core-team operations</li>
+              <li>Organised “Truss Bridge Analysis” competition</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">BAUST</div>
+          <div class="timeline-content">
+            <h3>Career Society of BAUST</h3>
+            <div class="role">Event Management Director</div>
+            <ul>
+              <li>Led planning and logistics for society events</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Education</div>
+        <h2>Academic background</h2>
+      </div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div>
+            <h3>B.Sc in Civil Engineering</h3>
+            <div class="school">Bangladesh Army University of Science & Technology (BAUST), Saidpur</div>
+          </div>
+          <div class="edu-right">
+            <div class="year">Expected 2026</div>
+            <div class="grade">CGPA 2.61</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <h3>HSC (Science)</h3>
+            <div class="school">Cantonment Public School and College, Rangpur</div>
+          </div>
+          <div class="edu-right">
+            <div class="year">2021</div>
+            <div class="grade">GPA 4.83</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <h3>SSC (Science)</h3>
+            <div class="school">Cantonment Public School and College, Rangpur</div>
+          </div>
+          <div class="edu-right">
+            <div class="year">2019</div>
+            <div class="grade">GPA 4.83</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Contact</div>
+        <h2>Let’s connect</h2>
+        <p class="lede">Open to internships, site engineering roles and collaborative opportunities.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Get in touch</h3>
+          <p>Send an email or message on LinkedIn. I usually reply within one working day.</p>
+          <div class="contact-links">
+            <a href="mailto:shajidhasanpantho14@gmail.com">
+              <span class="icon">✉</span> shajidhasanpantho14@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/shajid-hasan-pantho" target="_blank" rel="noopener">
+              <span class="icon">in</span> linkedin.com/in/shajid-hasan-pantho
+            </a>
+            <a href="tel:+8801306151650">
+              <span class="icon">☎</span> +880 1306-151650
+            </a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3>Location & Languages</h3>
+          <p style="margin-bottom:14px;">Based in Rangpur, Bangladesh. Open to opportunities across the country.</p>
+          <p style="margin-bottom:6px;"><strong>Languages</strong></p>
+          <p style="color:var(--ink-soft); font-size:14px; margin-bottom:14px;">
+            Bengali (Native) · English (Fluent) · Hindi (Conversational)
+          </p>
+          <p style="margin-bottom:6px;"><strong>Interests</strong></p>
+          <p style="color:var(--ink-soft); font-size:14px; margin:0;">
+            Traveling, community volunteering, teamwork activities
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Md. Shajid Hasan · Civil Engineering Portfolio · 2025
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if (saved) root.setAttribute('data-theme', saved);
+    toggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+</body>
+</html>
